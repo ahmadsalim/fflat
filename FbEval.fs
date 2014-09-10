@@ -6,12 +6,13 @@
 module FbEval
 
 #nowarn "40" //Disable warning on recursive object definition used in knot-tying
+open LazyList
 open FbAst
 
 (* Environment operations *)
 
 type 'v env = (string * 'v) list
-type 'v lazyenv = (string * 'v) LazyList
+type 'v lazyenv = (string * 'v) lazylist
 
 let rec lookup env x =
     match env with
